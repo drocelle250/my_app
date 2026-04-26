@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function LowStockBanner({ count }) {
   if (count === 0) return null;
   return (

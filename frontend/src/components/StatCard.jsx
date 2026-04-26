@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function StatCard({ title, value, color = 'gray', icon }) {
   return (
     <div className={`bg-${color}-100 border-${color}-400 p-6 rounded-lg shadow-md text-center`}>

@@ -1,3 +1,4 @@
+import React from "react";
 import { useInventory } from '../hooks/useInventory';
 import StatCard from './StatCard';
 import LowStockBanner from './LowStockBanner';
