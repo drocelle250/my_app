@@ -1,0 +1,11 @@
+node_modules
+.env
+*.log
+.DS_Store
+
+# Keep only seeder.js in database folder
+database/testLogin.js
+database/testLoginHttp.js
+database/fixPasswords.js
+database/makeAdmin.js
+database/resetAdmin.js
