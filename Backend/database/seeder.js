@@ -24,10 +24,10 @@ const seed = async () => {
 
   // ── Users (passwords are hashed by the model hook)
   const users = await User.bulkCreate([
-    { name: "Alice Admin",  email: "admin@inventory.com",   password: "Admin@123",   role: "admin"   },
-    { name: "Bob Manager",  email: "manager@inventory.com", password: "Manager@123", role: "manager" },
-    { name: "Carol Staff",  email: "staff@inventory.com",   password: "Staff@123",   role: "staff"   },
-    { name: "David Staff",  email: "david@inventory.com",   password: "Staff@123",   role: "staff"   },
+    { name: "drocelle UWAYESU", email: "drocelle2007@gmail.com", password: "Admin@123",   role: "admin"   },
+    { name: "Bob Manager",      email: "manager@inventory.com",  password: "Manager@123", role: "manager" },
+    { name: "Carol Staff",      email: "staff@inventory.com",    password: "Staff@123",   role: "staff"   },
+    { name: "David Staff",      email: "david@inventory.com",    password: "Staff@123",   role: "staff"   },
   ], { individualHooks: true }); // individualHooks = true triggers beforeCreate for each row
   console.log(`Inserted ${users.length} users`);
 
@@ -103,9 +103,9 @@ const seed = async () => {
   console.log("\n✅ Database seeded successfully!");
   console.log("─────────────────────────────────────");
   console.log("Login credentials:");
-  console.log("  admin@inventory.com   → Admin@123   (admin)");
-  console.log("  manager@inventory.com → Manager@123 (manager)");
-  console.log("  staff@inventory.com   → Staff@123   (staff)");
+  console.log("  drocelle2007@gmail.com → Admin@123   (admin)");
+  console.log("  manager@inventory.com  → Manager@123 (manager)");
+  console.log("  staff@inventory.com    → Staff@123   (staff)");
   console.log("─────────────────────────────────────");
 
   await sequelize.close();
