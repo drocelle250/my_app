@@ -28,6 +28,9 @@ export default function Navbar() {
             <NavLink to="/" label="Dashboard" isActive={isActive} />
             <NavLink to="/products" label="Products" isActive={isActive} />
             <NavLink to="/categories" label="Categories" isActive={isActive} />
+            {(state.user?.role === "admin" || state.user?.role === "manager") && (
+              <NavLink to="/stock" label="Stock" isActive={isActive} />
+            )}
             {state.user?.role === "admin" && (
               <NavLink to="/users" label="Users" isActive={isActive} />
             )}

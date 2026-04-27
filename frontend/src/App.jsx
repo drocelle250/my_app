@@ -9,6 +9,7 @@ import Products from "./pages/Products";
 import ProductForm from "./pages/ProductForm";
 import Categories from "./pages/Categories";
 import Users from "./pages/Users";
+import Stock from "./pages/Stock";
 
 function Layout({ children }) {
   return (
@@ -45,6 +46,9 @@ export default function App() {
           } />
           <Route path="/users" element={
             <ProtectedRoute><Layout><Users /></Layout></ProtectedRoute>
+          } />
+          <Route path="/stock" element={
+            <ProtectedRoute><Layout><Stock /></Layout></ProtectedRoute>
           } />
 
           {/* Fallback */}
