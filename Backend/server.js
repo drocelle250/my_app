@@ -11,7 +11,24 @@ connectDB();
 
 // Middleware
 app.use(express.json());
-app.use(cors({ origin: "*" }));
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (mobile apps, curl, Postman)
+    if (!origin) return callback(null, true);
+    // Allow localhost for development
+    if (origin.includes("localhost")) return callback(null, true);
+    // Allow Netlify, Vercel, Railway domains
+    if (
+      origin.includes("netlify.app") ||
+      origin.includes("vercel.app") ||
+      origin.includes("railway.app") ||
+      origin.includes("onrender.com") ||
+      origin === process.env.FRONTEND_URL
+    ) return callback(null, true);
+    return callback(null, true); // allow all for now
+  },
+  credentials: true,
+}));
 
 // Routes
 app.use("/api/auth",       require("./routes/auth"));
