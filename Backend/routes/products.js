@@ -17,7 +17,7 @@ router.post(
     body("sku").notEmpty().withMessage("SKU is required"),
     body("price").isFloat({ min: 0 }).withMessage("Price must be a non-negative number"),
     body("quantity").isInt({ min: 0 }).withMessage("Quantity must be a non-negative integer"),
-    body("category").notEmpty().withMessage("Category is required"),
+    body("categoryId").notEmpty().withMessage("Category is required"),
   ],
   validate,
   create

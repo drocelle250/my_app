@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useInventory } from '../hooks/useInventory';
 import { Link } from 'react-router-dom';
 
