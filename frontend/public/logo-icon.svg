@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none">
+  <!-- Background hex -->
+  <polygon points="30,2 54,15 54,45 30,58 6,45 6,15" fill="#0F172A"/>
+  <!-- Inventory boxes 2×2 -->
+  <rect x="16" y="18" width="11" height="11" rx="2" fill="#3B82F6"/>
+  <rect x="29" y="18" width="11" height="11" rx="2" fill="#22C55E"/>
+  <rect x="16" y="31" width="11" height="11" rx="2" fill="#22C55E"/>
+  <rect x="29" y="31" width="11" height="11" rx="2" fill="#3B82F6"/>
+  <!-- AI node top-right -->
+  <circle cx="48" cy="12" r="4" fill="#FACC15"/>
+  <line x1="44" y1="14" x2="40" y2="18" stroke="#FACC15" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Cart arc -->
+  <path d="M14 46 Q30 55 46 46" stroke="#3B82F6" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <circle cx="21" cy="50" r="2" fill="#22C55E"/>
+  <circle cx="39" cy="50" r="2" fill="#22C55E"/>
+</svg>

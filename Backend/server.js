@@ -11,6 +11,8 @@ connectDB();
 
 // Middleware
 app.use(express.json());
+// Serve uploaded product images and videos
+app.use("/uploads", express.static(require("path").join(__dirname, "uploads")));
 app.use(cors({
   origin: function (origin, callback) {
     // Allow requests with no origin (mobile apps, curl, Postman)
@@ -36,6 +38,8 @@ app.use("/api/products",   require("./routes/products"));
 app.use("/api/categories", require("./routes/categories"));
 app.use("/api/stock",      require("./routes/stock"));
 app.use("/api/users",      require("./routes/users"));
+app.use("/api/orders",     require("./routes/orders"));
+app.use("/api/ai",         require("./routes/ai"));
 
 // Health check
 app.get("/api/health", (req, res) => res.json({ status: "ok", db: "MySQL" }));

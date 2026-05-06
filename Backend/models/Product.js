@@ -11,6 +11,8 @@ const Product = sequelize.define(
     price:             { type: DataTypes.DECIMAL(10, 2), allowNull: false },
     quantity:          { type: DataTypes.INTEGER, allowNull: false, defaultValue: 0 },
     description:       { type: DataTypes.TEXT, allowNull: true },
+    imageUrl:          { type: DataTypes.STRING(500), allowNull: true },
+    videoUrl:          { type: DataTypes.STRING(500), allowNull: true },
     lowStockThreshold: { type: DataTypes.INTEGER, defaultValue: 10 },
     categoryId:        { type: DataTypes.INTEGER, allowNull: false },
   },

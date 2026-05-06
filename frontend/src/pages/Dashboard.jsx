@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import API from "../api";
 import { useInventory } from "../hooks/useInventory";
@@ -100,7 +100,7 @@ export default function Dashboard() {
         <div className="bg-white rounded-xl shadow p-6 mb-8 border border-violet-100">
           <h2 className="text-lg font-semibold text-gray-800 mb-1">🛠️ Admin Quick Actions</h2>
           <p className="text-sm text-gray-500 mb-4">Manage every part of the system from here.</p>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
             <Link to="/products/add"
               className="flex flex-col items-center justify-center bg-violet-50 hover:bg-violet-100 border border-violet-200 rounded-xl p-4 text-center transition">
               <span className="text-2xl mb-1">➕</span>
@@ -109,17 +109,27 @@ export default function Dashboard() {
             <Link to="/categories"
               className="flex flex-col items-center justify-center bg-yellow-50 hover:bg-yellow-100 border border-yellow-200 rounded-xl p-4 text-center transition">
               <span className="text-2xl mb-1">📂</span>
-              <span className="text-sm font-medium text-yellow-700">Manage Categories</span>
+              <span className="text-sm font-medium text-yellow-700">Categories</span>
             </Link>
             <Link to="/stock"
               className="flex flex-col items-center justify-center bg-green-50 hover:bg-green-100 border border-green-200 rounded-xl p-4 text-center transition">
               <span className="text-2xl mb-1">📦</span>
-              <span className="text-sm font-medium text-green-700">Manage Stock</span>
+              <span className="text-sm font-medium text-green-700">Stock</span>
             </Link>
-            <Link to="/users"
-              className="flex flex-col items-center justify-center bg-red-50 hover:bg-red-100 border border-red-200 rounded-xl p-4 text-center transition">
-              <span className="text-2xl mb-1">👥</span>
-              <span className="text-sm font-medium text-red-700">Manage Users</span>
+            <Link to="/orders"
+              className="flex flex-col items-center justify-center bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-xl p-4 text-center transition">
+              <span className="text-2xl mb-1">🧾</span>
+              <span className="text-sm font-medium text-blue-700">Orders</span>
+            </Link>
+            <Link to="/analytics"
+              className="flex flex-col items-center justify-center bg-indigo-50 hover:bg-indigo-100 border border-indigo-200 rounded-xl p-4 text-center transition">
+              <span className="text-2xl mb-1">📊</span>
+              <span className="text-sm font-medium text-indigo-700">Analytics</span>
+            </Link>
+            <Link to="/ai-predictions"
+              className="flex flex-col items-center justify-center bg-gradient-to-br from-violet-50 to-pink-50 hover:from-violet-100 hover:to-pink-100 border border-violet-200 rounded-xl p-4 text-center transition">
+              <span className="text-2xl mb-1">🤖</span>
+              <span className="text-sm font-medium text-violet-700">AI Predict</span>
             </Link>
           </div>
         </div>

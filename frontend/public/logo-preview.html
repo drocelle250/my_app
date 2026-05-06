@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartStock U.D — Logo Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #F8FAFC; color: #0F172A; }
+
+    header {
+      background: #0F172A;
+      padding: 24px 40px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    header img { height: 40px; }
+    header h1 { color: #F1F5F9; font-size: 18px; font-weight: 600; }
+    header span { color: #64748B; font-size: 13px; }
+
+    main { max-width: 960px; margin: 0 auto; padding: 48px 24px; }
+
+    h2 { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; color: #64748B;
+         text-transform: uppercase; margin-bottom: 20px; }
+
+    .section { margin-bottom: 56px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+
+    .card {
+      border-radius: 16px;
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid #E2E8F0;
+    }
+    .card.light  { background: #FFFFFF; }
+    .card.dark   { background: #0F172A; border-color: #1E293B; }
+    .card.slate  { background: #F1F5F9; }
+    .card.brand  { background: linear-gradient(135deg, #1E3A5F 0%, #0F172A 100%); border-color: #1E3A5F; }
+
+    .card img { max-width: 100%; height: auto; }
+    .card label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #94A3B8;
+      margin-top: 8px;
+    }
+
+    /* Icon-only row */
+    .icon-row { display: flex; gap: 24px; flex-wrap: wrap; align-items: center; }
+    .icon-box {
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #E2E8F0;
+      min-width: 120px;
+    }
+    .icon-box.light { background: #fff; }
+    .icon-box.dark  { background: #0F172A; border-color: #1E293B; }
+    .icon-box.blue  { background: #EFF6FF; border-color: #BFDBFE; }
+    .icon-box img   { width: 56px; height: 56px; }
+    .icon-box label { font-size: 10px; font-weight: 600; letter-spacing: 1px;
+                      text-transform: uppercase; color: #94A3B8; }
+
+    /* Color palette */
+    .palette { display: flex; gap: 12px; flex-wrap: wrap; }
+    .swatch {
+      width: 80px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #E2E8F0;
+    }
+    .swatch-color { height: 56px; }
+    .swatch-info  { background: #fff; padding: 8px; }
+    .swatch-info p { font-size: 11px; font-weight: 700; color: #0F172A; }
+    .swatch-info span { font-size: 10px; color: #64748B; font-family: monospace; }
+
+    /* Usage rules */
+    .rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .rule {
+      background: #fff;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .rule .icon { font-size: 24px; margin-bottom: 8px; }
+    .rule h3 { font-size: 13px; font-weight: 700; color: #0F172A; margin-bottom: 4px; }
+    .rule p  { font-size: 12px; color: #64748B; line-height: 1.5; }
+
+    footer {
+      text-align: center;
+      padding: 32px;
+      color: #94A3B8;
+      font-size: 12px;
+      border-top: 1px solid #E2E8F0;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="logo-icon.svg" alt="SmartStock icon" />
+  <div>
+    <h1>SmartStock U.D — Brand Assets</h1>
+    <span>Logo variations · Color palette · Usage guidelines</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- Full logo variations -->
+  <section class="section">
+    <h2>Full Logo — Light Backgrounds</h2>
+    <div class="grid">
+      <div class="card light">
+        <img src="logo-full.svg" alt="Full logo light" />
+        <label>Primary · Light</label>
+      </div>
+      <div class="card slate">
+        <img src="logo-full.svg" alt="Full logo slate" />
+        <label>On Slate Background</label>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Full Logo — Dark Backgrounds</h2>
+    <div class="grid">
+      <div class="card dark">
+        <img src="logo-dark.svg" alt="Full logo dark" />
+        <label>Primary · Dark</label>
+      </div>
+      <div class="card brand">
+        <img src="logo-dark.svg" alt="Full logo brand" />
+        <label>On Brand Background</label>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Compact Logo — Navbar / Small Spaces</h2>
+    <div class="grid">
+      <div class="card light">
+        <img src="logo-compact.svg" alt="Compact logo" />
+        <label>Compact · Light</label>
+      </div>
+      <div class="card slate">
+        <img src="logo-compact.svg" alt="Compact logo slate" />
+        <label>Compact · Slate</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- Icon only -->
+  <section class="section">
+    <h2>Icon Only — Favicon / App Icon</h2>
+    <div class="icon-row">
+      <div class="icon-box light">
+        <img src="logo-icon.svg" alt="Icon light" />
+        <label>Light</label>
+      </div>
+      <div class="icon-box dark">
+        <img src="logo-icon.svg" alt="Icon dark" />
+        <label>Dark</label>
+      </div>
+      <div class="icon-box blue">
+        <img src="logo-icon.svg" alt="Icon blue" />
+        <label>Blue Tint</label>
+      </div>
+      <!-- 32px -->
+      <div class="icon-box light" style="min-width:80px;padding:16px;">
+        <img src="logo-icon.svg" style="width:32px;height:32px;" alt="32px" />
+        <label>32px</label>
+      </div>
+      <!-- 24px -->
+      <div class="icon-box light" style="min-width:72px;padding:16px;">
+        <img src="logo-icon.svg" style="width:24px;height:24px;" alt="24px" />
+        <label>24px</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- Color palette -->
+  <section class="section">
+    <h2>Color Palette</h2>
+    <div class="palette">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#3B82F6;"></div>
+        <div class="swatch-info"><p>Blue 500</p><span>#3B82F6</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1D4ED8;"></div>
+        <div class="swatch-info"><p>Blue 700</p><span>#1D4ED8</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#22C55E;"></div>
+        <div class="swatch-info"><p>Green 500</p><span>#22C55E</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#16A34A;"></div>
+        <div class="swatch-info"><p>Green 600</p><span>#16A34A</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FACC15;"></div>
+        <div class="swatch-info"><p>Yellow 400</p><span>#FACC15</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#0F172A;"></div>
+        <div class="swatch-info"><p>Slate 900</p><span>#0F172A</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1E293B;"></div>
+        <div class="swatch-info"><p>Slate 800</p><span>#1E293B</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F1F5F9;"></div>
+        <div class="swatch-info"><p>Slate 100</p><span>#F1F5F9</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Usage guidelines -->
+  <section class="section">
+    <h2>Usage Guidelines</h2>
+    <div class="rules">
+      <div class="rule">
+        <div class="icon">✅</div>
+        <h3>Do</h3>
+        <p>Use on white, light gray, or dark navy backgrounds. Maintain clear space equal to the icon height on all sides.</p>
+      </div>
+      <div class="rule">
+        <div class="icon">❌</div>
+        <h3>Don't</h3>
+        <p>Don't stretch, rotate, recolor, or place on busy/patterned backgrounds. Don't use low-contrast color combinations.</p>
+      </div>
+      <div class="rule">
+        <div class="icon">📐</div>
+        <h3>Minimum Size</h3>
+        <p>Full logo: 160px wide minimum. Icon only: 24px minimum. Below these sizes use text only.</p>
+      </div>
+      <div class="rule">
+        <div class="icon">🔤</div>
+        <h3>Typography</h3>
+        <p>Wordmark uses Inter 700. Tagline uses Inter 400. Do not substitute with other fonts.</p>
+      </div>
+      <div class="rule">
+        <div class="icon">🌐</div>
+        <h3>Web Use</h3>
+        <p>Use SVG format for all web contexts. Use logo-compact for navbar (height 32–40px). Use logo-icon for favicon.</p>
+      </div>
+      <div class="rule">
+        <div class="icon">🎨</div>
+        <h3>Icon Meaning</h3>
+        <p>Hexagon = structure/system. 2×2 boxes = inventory. Yellow dot = AI intelligence. Arc + circles = shopping cart.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  SmartStock U.D · Brand Identity · All SVG files are in <code>/public/</code>
+</footer>
+
+</body>
+</html>
