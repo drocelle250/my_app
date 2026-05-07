@@ -143,7 +143,7 @@ export default function ProductDetail() {
         onCart={() => navigate("/shop")}
       />
 
-      <div className="max-w-6xl mx-auto px-4 py-8 animate-fade-in">
+      <div className="max-w-6xl mx-auto px-4 py-5 sm:py-8 animate-fade-in">
 
         {/* ── Breadcrumb ── */}
         <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
@@ -164,7 +164,7 @@ export default function ProductDetail() {
         </nav>
 
         {/* ── Main product section ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 mb-10 sm:mb-16">
 
           {/* Left: Media */}
           <div className="space-y-3">
@@ -231,7 +231,7 @@ export default function ProductDetail() {
             </div>
 
             {/* Name */}
-            <h1 className="text-3xl font-extrabold text-gray-900 mb-3 leading-tight">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3 leading-tight">
               {product.name}
             </h1>
 

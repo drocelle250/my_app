@@ -50,64 +50,75 @@ export default function Categories() {
   };
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Categories</h1>
+    <div className="p-4 sm:p-6 max-w-4xl mx-auto">
+      <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-5 sm:mb-6">Categories</h1>
 
       {/* Form */}
-      <div className="bg-white rounded-xl shadow p-6 mb-6">
-        <h2 className="text-lg font-semibold mb-4">{editId ? "Edit Category" : "Add Category"}</h2>
-        {error && <div className="bg-red-100 text-red-700 px-4 py-2 rounded mb-3">{error}</div>}
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-          <input type="text" required placeholder="Category name" value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-            className="border border-gray-300 rounded-lg px-4 py-2 flex-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          <input type="text" placeholder="Description (optional)" value={form.description}
-            onChange={(e) => setForm({ ...form, description: e.target.value })}
-            className="border border-gray-300 rounded-lg px-4 py-2 flex-1 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-          <button type="submit" className="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 font-medium">
-            {editId ? "Update" : "Add"}
-          </button>
-          {editId && (
-            <button type="button" onClick={() => { setEditId(null); setForm({ name: "", description: "" }); }}
-              className="bg-gray-200 text-gray-700 px-5 py-2 rounded-lg hover:bg-gray-300">
-              Cancel
+      <div className="bg-white rounded-2xl shadow p-4 sm:p-6 mb-5 sm:mb-6">
+        <h2 className="text-base sm:text-lg font-semibold mb-4">{editId ? "Edit Category" : "Add Category"}</h2>
+        {error && <div className="bg-red-100 text-red-700 px-4 py-2.5 rounded-xl mb-3 text-sm">{error}</div>}
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
+            <input type="text" required placeholder="Category name" value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              className="border border-gray-300 rounded-xl px-4 py-2.5 flex-1 focus:outline-none focus:ring-2 focus:ring-violet-400 text-sm" />
+            <input type="text" placeholder="Description (optional)" value={form.description}
+              onChange={(e) => setForm({ ...form, description: e.target.value })}
+              className="border border-gray-300 rounded-xl px-4 py-2.5 flex-1 focus:outline-none focus:ring-2 focus:ring-violet-400 text-sm" />
+          </div>
+          <div className="flex gap-2">
+            <button type="submit"
+              className="bg-violet-600 text-white px-5 py-2.5 rounded-xl hover:bg-violet-700 font-semibold text-sm transition">
+              {editId ? "Update" : "Add"}
             </button>
-          )}
+            {editId && (
+              <button type="button" onClick={() => { setEditId(null); setForm({ name: "", description: "" }); }}
+                className="bg-gray-100 text-gray-700 px-5 py-2.5 rounded-xl hover:bg-gray-200 font-medium text-sm transition">
+                Cancel
+              </button>
+            )}
+          </div>
         </form>
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-xl shadow overflow-hidden">
+      <div className="bg-white rounded-2xl shadow overflow-hidden">
         {loading ? (
-          <div className="text-center py-8 text-gray-400">Loading...</div>
+          <div className="text-center py-10 text-gray-400">Loading...</div>
         ) : (
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="bg-gray-100 text-left text-gray-600">
-                <th className="px-4 py-3">#</th>
-                <th className="px-4 py-3">Name</th>
-                <th className="px-4 py-3">Description</th>
-                <th className="px-4 py-3">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {state.categories.length === 0 ? (
-                <tr><td colSpan="4" className="text-center py-8 text-gray-400">No categories found</td></tr>
-              ) : state.categories.map((cat, i) => (
-                <tr key={cat.id} className="border-t hover:bg-gray-50">
-                  <td className="px-4 py-3 text-gray-400">{i + 1}</td>
-                  <td className="px-4 py-3 font-medium">{cat.name}</td>
-                  <td className="px-4 py-3 text-gray-500">{cat.description || "—"}</td>
-                  <td className="px-4 py-3 space-x-3">
-                    <button onClick={() => handleEdit(cat)} className="text-blue-600 hover:underline text-sm">Edit</button>
-                    {state.user?.role === "admin" && (
-                      <button onClick={() => handleDelete(cat.id)} className="text-red-600 hover:underline text-sm">Delete</button>
-                    )}
-                  </td>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm min-w-[400px]">
+              <thead>
+                <tr className="bg-gray-100 text-left text-gray-600">
+                  <th className="px-4 py-3">#</th>
+                  <th className="px-4 py-3">Name</th>
+                  <th className="px-4 py-3 hidden sm:table-cell">Description</th>
+                  <th className="px-4 py-3">Actions</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {state.categories.length === 0 ? (
+                  <tr><td colSpan="4" className="text-center py-10 text-gray-400">No categories found</td></tr>
+                ) : state.categories.map((cat, i) => (
+                  <tr key={cat.id} className="border-t hover:bg-gray-50">
+                    <td className="px-4 py-3 text-gray-400">{i + 1}</td>
+                    <td className="px-4 py-3 font-medium">{cat.name}</td>
+                    <td className="px-4 py-3 text-gray-500 hidden sm:table-cell">{cat.description || "—"}</td>
+                    <td className="px-4 py-3">
+                      <div className="flex items-center gap-3">
+                        <button onClick={() => handleEdit(cat)}
+                          className="text-violet-600 hover:underline text-sm font-medium">Edit</button>
+                        {state.user?.role === "admin" && (
+                          <button onClick={() => handleDelete(cat.id)}
+                            className="text-red-500 hover:underline text-sm font-medium">Delete</button>
+                        )}
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
     </div>

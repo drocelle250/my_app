@@ -48,13 +48,11 @@ export default function Login() {
       </nav>
 
       {/* Card */}
-      <div className="flex-1 flex items-center justify-center px-4 py-10">
-        <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
-
-          {/* Header */}
-          <div className="text-center mb-8">
-            <div className="text-5xl mb-3">👋</div>
-            <h1 className="text-3xl font-bold text-gray-800">Welcome back</h1>
+      <div className="flex-1 flex items-center justify-center px-4 py-6 sm:py-10">
+        <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-xl w-full max-w-md">
+          <div className="text-center mb-6 sm:mb-8">
+            <div className="text-4xl sm:text-5xl mb-3">👋</div>
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Welcome back</h1>
             <p className="text-gray-500 mt-1 text-sm">Sign in to your account to continue</p>
           </div>
 

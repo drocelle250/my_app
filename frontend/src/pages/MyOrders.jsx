@@ -54,7 +54,7 @@ export default function MyOrders() {
         </div>
       </nav>
 
-      <div className="max-w-5xl mx-auto px-4 py-8">
+      <div className="max-w-5xl mx-auto px-4 py-5 sm:py-8">
 
         {/* Header */}
         <div className="mb-6">

@@ -196,12 +196,12 @@ export default function Analytics() {
   const { summary, dailyFlow, topSelling, productAnalytics, needsRestock, recentHistory } = data || {};
 
   return (
-    <div className="p-6 max-w-7xl mx-auto space-y-8">
+    <div className="p-4 sm:p-6 max-w-7xl mx-auto space-y-6 sm:space-y-8">
 
       {/* ── Page Header ──────────────────────────────────────────────────── */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">📊 Analytics</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">📊 Analytics</h1>
           <p className="text-gray-500 text-sm mt-1">
             Inventory insights for the last <strong>{days} days</strong>
           </p>
@@ -226,7 +226,7 @@ export default function Analytics() {
       </div>
 
       {/* ── Summary Cards ────────────────────────────────────────────────── */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
         <SummaryCard
           icon="📥"
           title="Total Inflow"

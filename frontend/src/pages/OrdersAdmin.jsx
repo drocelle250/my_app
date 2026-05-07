@@ -69,12 +69,12 @@ export default function OrdersAdmin() {
   );
 
   return (
-    <div className="p-6 max-w-7xl mx-auto">
+    <div className="p-4 sm:p-6 max-w-7xl mx-auto">
 
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <div>
-          <h1 className="text-3xl font-bold text-gray-800">🧾 Orders</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">🧾 Orders</h1>
           <p className="text-gray-500 text-sm mt-1">Manage and track all customer orders</p>
         </div>
         {/* Summary pills */}
@@ -92,7 +92,7 @@ export default function OrdersAdmin() {
       </div>
 
       {/* Revenue card */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-6">
         <div className="bg-gradient-to-br from-violet-500 to-indigo-600 text-white rounded-2xl p-5 shadow-lg">
           <p className="text-violet-200 text-sm">Total Revenue</p>
           <p className="text-3xl font-extrabold mt-1">${totalRevenue.toFixed(2)}</p>

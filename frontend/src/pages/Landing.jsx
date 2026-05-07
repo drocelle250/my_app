@@ -61,9 +61,12 @@ export default function Landing() {
   };
 
   const filtered = products.filter((p) => {
-    const matchSearch =
-      p.name.toLowerCase().includes(search.toLowerCase()) ||
-      (p.sku && p.sku.toLowerCase().includes(search.toLowerCase()));
+    const q = search.toLowerCase().trim();
+    const matchSearch = !q ||
+      p.name.toLowerCase().includes(q) ||
+      (p.sku || "").toLowerCase().includes(q) ||
+      (p.category?.name || "").toLowerCase().includes(q) ||
+      (p.description || "").toLowerCase().includes(q);
     const matchCat = selectedCategory
       ? String(p.categoryId) === String(selectedCategory)
       : true;
@@ -101,10 +104,10 @@ export default function Landing() {
       </nav>
 
       {/* ── HERO ── */}
-      <section className="bg-gradient-to-br from-violet-600 via-indigo-500 to-purple-600 text-white py-20 px-4">
+      <section className="bg-gradient-to-br from-violet-600 via-indigo-500 to-purple-600 text-white py-12 sm:py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="text-6xl mb-4">🛍️</div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 leading-tight">
+          <div className="text-5xl sm:text-6xl mb-3 sm:mb-4">🛍️</div>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-3 sm:mb-4 leading-tight">
             Discover Our Products
           </h1>
           <p className="text-violet-100 text-lg mb-8 max-w-xl mx-auto">
@@ -242,7 +245,7 @@ export default function Landing() {
             <p className="text-sm text-gray-500 mb-4">
               Showing <strong>{filtered.length}</strong> product{filtered.length !== 1 ? "s" : ""}
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
               {filtered.map((p) => (
                 <ProductCard key={p.id} product={p} />
               ))}
