@@ -22,6 +22,7 @@ import Stock         from "./pages/Stock";
 import Analytics     from "./pages/Analytics";
 import OrdersAdmin   from "./pages/OrdersAdmin";
 import AIPredictions from "./pages/AIPredictions";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function Layout({ children }) {
   return (
@@ -40,9 +41,10 @@ export default function App() {
           <BrowserRouter>
             <Routes>
               {/* ── Public ── */}
-              <Route path="/"         element={<Landing />} />
-              <Route path="/login"    element={<Login />} />
-              <Route path="/register" element={<Register />} />
+              <Route path="/"                  element={<Landing />} />
+              <Route path="/login"             element={<Login />} />
+              <Route path="/register"          element={<Register />} />
+              <Route path="/forgot-password"   element={<ForgotPassword />} />
 
               {/* ── Customer (own layout, no admin navbar) ── */}
               <Route path="/shop" element={
