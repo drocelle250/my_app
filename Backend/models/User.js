@@ -10,6 +10,8 @@ const User = sequelize.define(
     email:    { type: DataTypes.STRING(150), allowNull: false, unique: true },
     password: { type: DataTypes.STRING(255), allowNull: false },
     role:     { type: DataTypes.ENUM("admin", "manager", "staff"), defaultValue: "staff" },
+    resetCode:    { type: DataTypes.STRING(6),  allowNull: true },
+    resetExpires: { type: DataTypes.DATE,        allowNull: true },
   },
   { tableName: "users", timestamps: true }
 );

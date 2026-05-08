@@ -17,6 +17,9 @@ export default function useVoiceSearch({ onResult, lang = "en-US" } = {}) {
   const [transcript, setTranscript] = useState("");
   const [error,      setError]      = useState(null);
   const recognitionRef = useRef(null);
+  // Always hold the latest onResult without causing stale closures
+  const onResultRef = useRef(onResult);
+  useEffect(() => { onResultRef.current = onResult; }, [onResult]);
 
   // Check browser support once
   const SpeechRecognition =
@@ -43,9 +46,9 @@ export default function useVoiceSearch({ onResult, lang = "en-US" } = {}) {
 
     const recognition = new SpeechRecognition();
     recognition.lang            = lang;
-    recognition.interimResults  = true;   // show partial results while speaking
+    recognition.interimResults  = true;
     recognition.maxAlternatives = 1;
-    recognition.continuous      = false;  // stop after first pause
+    recognition.continuous      = false;
 
     recognition.onstart = () => setListening(true);
 
@@ -59,7 +62,8 @@ export default function useVoiceSearch({ onResult, lang = "en-US" } = {}) {
       }
       const text = (final || interim).trim();
       setTranscript(text);
-      if (final && onResult) onResult(final.trim());
+      // Use ref to always call the latest onResult without stale closure
+      if (final && onResultRef.current) onResultRef.current(final.trim());
     };
 
     recognition.onerror = (event) => {
@@ -68,20 +72,18 @@ export default function useVoiceSearch({ onResult, lang = "en-US" } = {}) {
         "no-speech":      "No speech detected. Please try again.",
         "network":        "Network error during voice recognition.",
         "audio-capture":  "No microphone found.",
-        "aborted":        null, // user stopped — not an error
+        "aborted":        null,
       };
       const msg = msgs[event.error];
       if (msg !== null) setError(msg ?? `Voice error: ${event.error}`);
       setListening(false);
     };
 
-    recognition.onend = () => {
-      setListening(false);
-    };
+    recognition.onend = () => setListening(false);
 
     recognitionRef.current = recognition;
     recognition.start();
-  }, [supported, listening, lang, onResult]);
+  }, [supported, listening, lang]); // ← removed onResult from deps, use ref instead
 
   const stop = useCallback(() => {
     recognitionRef.current?.stop();
